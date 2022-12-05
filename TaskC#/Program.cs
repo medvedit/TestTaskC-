@@ -193,63 +193,230 @@
 // int decrypt = encrypt ^ key; // Результатом будет исходное число 45
 // Console.WriteLine($"Расшифрованное число: {decrypt}");
 
-// Представление отрицательных чисел
-int x = 12;
-int y = ~x;
-y = y + 1;  //  -12
-Console.WriteLine(y);   // -12
-Console.WriteLine(Convert.ToString(y, 2)); // Выводит вконсоль y в двичной системе. //  11111111111111111111111111110100
+// // Представление отрицательных чисел
+// int x = 12;
+// int y = ~x;
+// y = y + 1;  //  -12
+// Console.WriteLine(y);   // -12
+// Console.WriteLine(Convert.ToString(y, 2)); // Выводит вконсоль y в двичной системе. //  11111111111111111111111111110100
 
-int[] integers = {
-    12, -13, 243, 4, 16, -7, -1, 13, 14
-};
+// int[] integers = {
+//     12, -13, 243, 4, 16, -7, -1, 13, 14
+// };
 
-Array.Sort(integers);
+// Array.Sort(integers);
 
-Console.WriteLine($"" +
-    $"{"i",4}\t" +
-    $"{"~i",4}\t" +
-    $"{"~i+1",4}\t" +
-    $"{"i (binary)",32}\t" +
-    $"{"~i (binary)",32}\t" +
-    $"{"~i+1 (binary)",32}\n");
+// Console.WriteLine($"" +
+//     $"{"i",4}\t" +
+//     $"{"~i",4}\t" +
+//     $"{"~i+1",4}\t" +
+//     $"{"i (binary)",32}\t" +
+//     $"{"~i (binary)",32}\t" +
+//     $"{"~i+1 (binary)",32}\n");
 
-for (int i = 0; i < integers.Length; i++)
-{
-    Console.WriteLine($"" +
-        $"{integers[i],4}\t" +
-        $"{InverseCode(integers[i]),4}\t" +
-        $"{AdditionalCode(integers[i]),4}\t" +
-        $"{ConvertToBinaryFormatted(integers[i]),32}\t" +
-        $"{ConvertToBinaryFormatted(InverseCode(integers[i])),32}\t" +
-        $"{ConvertToBinaryFormatted(AdditionalCode(integers[i])),32}");
-}
+// for (int i = 0; i < integers.Length; i++)
+// {
+//     Console.WriteLine($"" +
+//         $"{integers[i],4}\t" +
+//         $"{InverseCode(integers[i]),4}\t" +
+//         $"{AdditionalCode(integers[i]),4}\t" +
+//         $"{ConvertToBinaryFormatted(integers[i]),32}\t" +
+//         $"{ConvertToBinaryFormatted(InverseCode(integers[i])),32}\t" +
+//         $"{ConvertToBinaryFormatted(AdditionalCode(integers[i])),32}");
+// }
 
-static bool isPositive(int number)
-{
-    return number >= 0;
-}
+// static bool isPositive(int number)
+// {
+//     return number >= 0;
+// }
 
-static int InverseCode(int number)
-{
-    if (isPositive(number))
-        return number;
+// static int InverseCode(int number)
+// {
+//     if (isPositive(number))
+//         return number;
 
-    return ~number;
-}
+//     return ~number;
+// }
 
-static int AdditionalCode(int number)
-{
-    if (isPositive(number))
-        return number;
+// static int AdditionalCode(int number)
+// {
+//     if (isPositive(number))
+//         return number;
 
-    return InverseCode(number) + 1;
-}
+//     return InverseCode(number) + 1;
+// }
 
-static string ConvertToBinaryFormatted(int number)
-{
-    return Convert.ToString(number, 2).PadLeft(32, '0');
-}
+// static string ConvertToBinaryFormatted(int number)
+// {
+//     return Convert.ToString(number, 2).PadLeft(32, '0');
+// }
 
-// Тема глубокая. Стоит вернуться снова  https://metanit.com/sharp/tutorial/2.22.php
+// // Тема глубокая. Стоит вернуться снова  https://metanit.com/sharp/tutorial/2.22.php
+
+// =================================================================================================================
+// Циклы являются управляющими конструкциями, позволяя в зависимости от определенных условий выполнять некоторое действие множество раз. В C# имеются следующие виды циклов:
+
+// for============
+// Цикл for
+// Цикл for имеет следующее формальное определение:
+// for ([действия_до_выполнения_цикла]; [условие]; [действия_после_выполнения])
+// {
+//     // действия
+// }
+// Нам необязательно указывать все условия при объявлении цикла. Например, мы можем написать так:
+
+// int i = 1;
+// for (; ;)
+// {
+//     Console.WriteLine($"i = {i}");
+//     i++;
+// }
+// Формально определение цикла осталось тем же, только теперь блоки в определении у нас пустые: for (; ;).
+// У нас нет инициализированной переменной, нет условия, поэтому цикл будет работать вечно - бесконечный цикл.
+// Также стоит отметить, что можно определять несколько переменных в объявлении цикла:
+
+// for (int i = 1, j = 1; i < 10; i++, j++)
+//     Console.WriteLine($"{i * j}");
+
+// for (int i = 1; i < 4; i++)
+// {
+//     Console.WriteLine(i);
+// }
+
+// foreach==================
+// Цикл foreach предназначен для перебора набора или коллекции элементов. Его общее определение:
+
+// foreach(тип_данных переменная in коллекция)
+// {
+//     // действия цикла
+// }
+// После оператора foreach в скобках сначала идет определение переменной.
+// Затем ключевое слово in и далее коллекция, элементы которой надо перебрать.
+
+// При выполнении цикл последовательно перебирает элементы коллекции и помещает их в переменную,
+// и таким образом в блоке цикла мы можем выполнить с ними некоторые действия.
+
+
+
+// while====================
+// В отличие от цикла do цикл while сразу проверяет истинность некоторого условия, и если условие истинно, то код цикла выполняется:
+
+// while (условие)
+// {
+//     действия цикла
+// }
+
+
+// do...while======================
+// В цикле do сначала выполняется код цикла, а потом происходит проверка условия в инструкции while.
+// И пока это условие истинно, цикл повторяется.
+
+// do
+// {
+//     действия цикла
+// }
+// while (условие)
+
+// Операторы continue и break==================
+
+// Иногда возникает ситуация, когда требуется выйти из цикла, не дожидаясь его завершения.
+// В этом случае мы можем воспользоваться оператором break.
+// for (int i = 0; i < 9; i++)
+// {
+//     if (i == 5)
+//         break;
+//     Console.WriteLine(i);
+// }
+// Хотя в условии цикла сказано, что цикл будет выполняться, пока счетчик i не достигнет значения 9,
+// в реальности цикл сработает 5 раз. Так как при достижении счетчиком i значения 5, сработает оператор break,
+// и цикл завершится.
+
+// Tеперь поставим себе другую задачу. А что если мы хотим, чтобы при проверке цикл не завершался,
+// а просто пропускал текущую итерацию. Для этого мы можем воспользоваться оператором continue:
+
+// for (int i = 0; i < 9; i++)
+// {
+//     if (i == 5)
+//         continue;
+//     Console.WriteLine(i);
+// }
+// В этом случае цикл, когда дойдет до числа 5, которое не удовлетворяет условию проверки,
+// просто пропустит это число и перейдет к следующей итерации:
+
+// Вложенные циклы=================================
+
+// Одни циклы могут быть вложенными в другие. Например:
+
+// for (int i = 1; i < 10; i++)
+// {
+//     for (int j = 1; j < 10; j++)
+//     {
+//         Console.Write($"{i * j} \t");
+//     }
+//     Console.WriteLine();
+// }
+// В данном случае цикл for (int i = 1; i < 10; i++) выполняется 9 раз, то есть имеет 9 итераций.
+// Но в рамках каждой итерации выполняется девять раз вложенный цикл for (int j = 1; j < 10; j++).
+// В итоге данная программа выведет таблицу умножения.
+
+// //МАССИВЫ ===================================================================
+// //Перебор элементов массива.
+// int[,] numbers = { { 1, 2 }, { 4, 5 }, { 6, 7 } };
+
+// int rows = numbers.GetUpperBound(0) + 1;    // количество строк GetUpperBound-возвращает индекс последнего элемента в определенной размерности
+// int columns = numbers.Length / rows;        // количество столбцов
+// // или так
+// // int columns = numbers.GetUpperBound(1) + 1;
+
+// for (int i = 0; i < rows; i++)
+// {
+//     for (int j = 0; j < columns; j++)
+//     {
+//         Console.Write($"{numbers[i, j]} \t");
+//     }
+//     Console.WriteLine();
+// }
+// // ИЛИ ===
+// Console.WriteLine(); // для пропуска видимой строки межды выведенными в терминал массивами.
+//
+// int[,] mas = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+
+// for (int i = 0; i < mas.GetLength(0); i++)
+// {
+//     for (int j = 0; j < mas.GetLength(1); j++)
+//     {
+//         Console.Write($"{mas[i, j]} \t");
+//     }
+//     Console.WriteLine();
+// }
+
+// // Разворот массива ============================
+// int[] nums = { -4, -3, -2, -1, 0, 1, 2, 3, 4 };
+// for (int i = 0; i < nums.Length / 2; i++)
+// {
+//     nums[i] += nums[nums.Length - i - 1];
+//     nums[nums.Length - i - 1] = nums[i] - nums[nums.Length - i - 1];
+//     nums[i] -= nums[nums.Length - i - 1];
+// }
+// foreach (int i in nums)
+// {
+//     Console.Write($"{i} \t");
+// }
+// Console.WriteLine();
+
+// //ИЛИ ================================
+
+// int[] numbers = { -4, -3, -2, -1, 0, 1, 2, 3, 4 }; //инвертируемый массив
+// int b = numbers.Length; //считаем колво элементов, переменная счетчик для 1 массива
+// int[] numbers1 = new int[b]; //создаем 2 массив с тем же числом элементов что и первый
+// int c = 0; //переменная-счетчик элементов для 2 массива
+// foreach (int number in numbers)
+// {
+//     numbers1[c++] = numbers[--b]; //присваиваем последний элемент первого массива к первому элементу второго
+// }
+// Console.WriteLine("Супермассив:"); //выводим
+// foreach (int i in numbers1)
+// {
+//     Console.Write($"{i} \t");
+// }Console.WriteLine();
 
