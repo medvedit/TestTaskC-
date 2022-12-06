@@ -548,6 +548,7 @@
 // }
 // Console.WriteLine();
 
+// Еще один разбор разворота массива ========================================================================================
 // // Инициализация массива с числами =======================================================================
 // int[] array = { 3, 2, 1 };
 
@@ -585,3 +586,84 @@
 // {
 // Console.WriteLine(i);
 // }
+
+// {
+// Console.WriteLine("Hello"); // Выводим сторку "Привет"
+// Console.WriteLine("Welcome to C#");// Выводим строку "Добро пожаловать в С#"
+// Console.WriteLine("This is the program of calculation Rectangle Area and Rectangle perimetr");// "Программа расчета площади и периметра прямоугольника"
+// }
+// Console.Write("write height:");
+// int h = Convert.ToInt32(Console.ReadLine());
+// Console.Write("write width:");
+// int w = Convert.ToInt32(Console.ReadLine());
+
+// void GetRectangleData(in int width, in int height, out int rectArea, out int rectPerimetr)
+// {
+// rectArea = width * height; // rectangle area
+// rectPerimetr = (width + height) * 2; // perimetr
+// }
+
+// GetRectangleData(w, h, out var area, out var perimetr);
+// Console.WriteLine($"Rectangle area: {area}, square meters");
+// Console.WriteLine($"Rectangle perimeter: {perimetr}, meters");
+
+// Методы =====================================================================================
+// void Sum(int[] numbers, int initialValue)
+// {
+//     int result = initialValue;
+//     foreach (int n in numbers)
+//     {
+//         result += n;
+//     }
+//     Console.WriteLine(result);
+// }
+
+// int[] nums = { 1, 2, 3, 4, 5};
+// Sum(nums, 10);
+
+// Рекурсия ======================================================================================
+
+
+// Факториал с помощью рекурсии ===================== Фибоначчи определяется по формуле: n! = 1 * 2 * … * n
+Console.Write($"Введите число : ");
+int f = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Факторилал числа {f} = {Factorial(f)}");
+int Factorial(int n)
+{
+    if (n == 1) return 1;
+
+    return n * Factorial(n - 1);
+}
+
+// Фибоначи с помощью рекурсии ==================== Фибоначчи определяется по формуле: f(n)=f(n-1) + f(n-2)
+// Ооооочень долго работает. Не стоит вводить число больше 40.
+Console.Write($"Введите число : ");
+decimal f1 = Convert.ToDecimal(Console.ReadLine());
+Console.WriteLine($"Фибоначи числа {f1} = {Fibonachi(f1)}");
+decimal Fibonachi(decimal n)
+{
+    if (n == 0 || n == 1) return n;
+
+    return Fibonachi(n - 1) + Fibonachi(n - 2);
+}
+
+// Фибоначи с помощью цикла for ==================== Фибоначчи определяется по формуле: f(n)=f(n-1) + f(n-2)
+// Моментально посчитало число 120.
+Console.Write($"Введите число : ");
+decimal f2 = Convert.ToDecimal(Console.ReadLine());
+Console.WriteLine($"Фибоначи числа {f2} = {Fibonachi2(f2)}");
+static decimal Fibonachi2(decimal n)
+{
+    decimal result = 0;
+    decimal b = 1;
+    decimal tmp;
+
+    for (decimal i = 0; i < n; i++)
+    {
+        tmp = result;
+        result = b;
+        b += tmp;
+    }
+
+    return result;
+}
