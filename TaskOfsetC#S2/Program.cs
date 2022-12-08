@@ -122,3 +122,36 @@ void LengthAreaCircle(string length)
     }
     else Console.WriteLine($"{radius6} является строкой.");
 }
+
+// S2.7. Даны два целых числа. Найти: а) их среднее арифметическое; б) их среднее геометрическое.
+int a7 = 5;
+int b7 = 28;
+Console.WriteLine($"Среднее арифметическое  {ArithmeticMean(a7,b7)}");
+Console.WriteLine($"Среднее геометрическое  {GeometricMean(a7,b7)}");
+
+int ArithmeticMean(int a, int b)
+{
+    int arithmeticMean = a + b / 2;
+    return arithmeticMean;
+}
+
+double GeometricMean(int a, int b)
+{
+    double geometricMean = Convert.ToDouble(Math.Sqrt(a * b));
+    return geometricMean;
+}
+
+// S2.8. Известны объем и масса тела. Определить плотность материала этого тела.
+// Сама формула выглядит подобным образом: p = m/V.
+// Где p - это плотность, выражается в кг/м^3; m = масса, в килограммах; V = объем, в м^3.
+Console.Write($"Введите объём тела (м.^3): ");
+double bodyVolume = Convert.ToDouble(Console.ReadLine());
+Console.Write($"Введите массу тела (кг.): ");
+double bodyMass = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine($"Плотность материала этого тела равна = {BodyDensity(bodyVolume, bodyMass)}");
+
+double BodyDensity(double namberVol, double namberMas)
+{
+    double bodyDensity = namberMas/namberVol;
+    return bodyDensity;
+}
