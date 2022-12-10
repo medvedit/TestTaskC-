@@ -171,26 +171,195 @@
 //     return populationDensity;
 // }
 
-// S2.10. Составить программу решения линейного уравнения ax+b=0 (a ≠ 0).
-Console.WriteLine(new string('≈',80));
-Console.WriteLine("Для решения уровнения ax+b=0 (a ≠ 0) введи значение a и b");
-Console.Write($"Значение a = ");
-float a10 = float.Parse(Console.ReadLine()!);
-Console.Write($"Значение b = ");
-float b10 = float.Parse(Console.ReadLine()!);
+// // S2.10. Составить программу решения линейного уравнения ax+b=0 (a ≠ 0).
+// Console.WriteLine(new string('≈', 80));
+// Console.WriteLine("Для решения уровнения ax+b=0 (a ≠ 0) введи значение a и b");
+// Console.Write($"Значение a = ");
+// double a10 = double.Parse(Console.ReadLine()!);
+// Console.Write($"Значение b = ");
+// double b10 = double.Parse(Console.ReadLine()!);
 
-LinearEquation(a10, b10);
+// LinearEquation(a10, b10);
 
-void LinearEquation(float firstNamber, float secondNamber)
+// void LinearEquation(double firstNamber, double secondNamber)
+// {
+//     if (a10 == 0 || b10 == 0)
+//     {
+//         Console.WriteLine("у уровнения нет корней");
+//     }
+//     else
+//     {
+//         double x10 = -b10 / a10;
+//         Console.WriteLine($"корень x = {x10}");
+//     }
+// }
+// Console.WriteLine(new string('≈', 80));
+
+// // S2.11. Даны катеты прямоугольного треугольника. Найти его гипотенузу.
+// Console.WriteLine(new string('≈', 80));
+// Console.WriteLine("Ведите катеты прямоугольного треугольника");
+// Console.Write("Катет №1 : ");
+// double triangleLegOne = Convert.ToDouble(Console.ReadLine());
+// if (Math.Sign(triangleLegOne) == -1)
+// {
+//    while (Math.Sign(triangleLegOne) == -1)
+//    {
+//       Console.Write("Катет не может быть отрицательный.\nВведите другое число: ");
+//       triangleLegOne = Convert.ToDouble(Console.ReadLine());
+//    }
+// }
+// Console.Write("Катет №2 : ");
+// double triangleLegTwo = Convert.ToDouble(Console.ReadLine());
+// if (Math.Sign(triangleLegTwo) == -1)
+// {
+//    while (Math.Sign(triangleLegTwo) == -1)
+//    {
+//        Console.Write("Катет не может быть отрицательный.\nВведите другое число: ");
+//        triangleLegTwo = Convert.ToDouble(Console.ReadLine());
+//    }
+// }
+// double hypotenuse = Math.Sqrt( triangleLegOne * triangleLegOne + triangleLegTwo * triangleLegTwo);
+// Console.WriteLine("Гипотенуза равна : {0:0.000}",hypotenuse);
+// Console.WriteLine(new string('≈', 80));
+
+// // S2.13А. Даны два числа. Найти среднее арифметическое и среднее геометрическое их  модулей.
+// Console.WriteLine(new string('≈', 80));
+// Console.Write($"Введите число №1: ");
+// double namberOne = int.Parse(Console.ReadLine()!);
+// Console.Write($"Введите число №2: ");
+// double namberTwo = int.Parse(Console.ReadLine()!);
+// if (namberOne < 0) namberOne = -namberOne;
+// if (namberTwo < 0) namberTwo = -namberTwo;
+// Console.WriteLine("Среднее арифметическое модулей числа a и b: {0:F}", (namberOne + namberTwo) / 2);
+// Console.WriteLine("Среднее геометрическое модулей числа a и b: {0:F}", Math.Sqrt(namberOne * namberTwo));
+// Console.WriteLine(new string('≈', 80));
+
+// S2.14. Даны основания и высота равнобедренной трапеции. Найти ее периметр.
+// c = √ h^2 + d^2 => P = a + b + 2c , где a, b -- основания, а h -- высота.
+Console.WriteLine(new string('≈', 80));
+Console.Write($"Введите длину основания №1: ");
+double baseLengthOne = Convert.ToDouble(Console.ReadLine()!);
+if (Math.Sign(baseLengthOne) == -1)
 {
-    if (a10 == 0 || b10 == 0)
+    while (Math.Sign(baseLengthOne) == -1)
     {
-        Console.WriteLine("у уровнения нет корней");
-    }
-    else
-    {
-        float x10 = -b10 / a10;
-        Console.WriteLine($"корень x = {x10}");
+        Console.Write("Длина основания №1 не может быть отрицательный.\nВведите другое число: ");
+        baseLengthOne = Convert.ToDouble(Console.ReadLine());
     }
 }
-Console.WriteLine(new string('≈',80));
+Console.Write($"Введите длину основания №2: ");
+double baseLengthTwo = Convert.ToDouble(Console.ReadLine()!);
+if (Math.Sign(baseLengthTwo) == -1)
+{
+    while (Math.Sign(baseLengthTwo) == -1)
+    {
+        Console.Write("Длина основания №2 не может быть отрицательный.\nВведите другое число: ");
+        baseLengthTwo = Convert.ToDouble(Console.ReadLine());
+    }
+}
+Console.Write($"Введите высоту трапции ");
+double trapezoidHeight = Convert.ToDouble(Console.ReadLine()!);
+if (Math.Sign(trapezoidHeight) == -1)
+{
+    while (Math.Sign(trapezoidHeight) == -1)
+    {
+        Console.Write("Высота трапеции не может быть отрицательный.\nВведите другое число: ");
+        trapezoidHeight = Convert.ToDouble(Console.ReadLine());
+    }
+}
+double differenceBase = Math.Sqrt(Math.Pow((baseLengthOne - baseLengthTwo) / 2, 2) + (trapezoidHeight * trapezoidHeight));
+double trapeziumPerimeter = baseLengthOne + baseLengthTwo + (2 * differenceBase);
+Console.WriteLine($"Преиметр трапеции равен {Math.Round(trapeziumPerimeter, 3)}");
+Console.WriteLine(new string('≈', 80));
+
+// S2.14А. Даны стороны прямоугольника. Найти его периметр и длину диагонали.
+Console.WriteLine(new string('≈', 80));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Program
+// {
+//    static double Vvod_Chisla()
+//    {
+//       double chislo;
+//       string vvod;
+//       vvod = Console.ReadLine()!;
+//       while (!Double.TryParse(vvod, out chislo))
+//       {
+//          Console.WriteLine("Недопустимые символы в строке ввода.Ожидается число:");
+//          vvod = Console.ReadLine()!;
+//       }
+//       return chislo;
+//    }
+//    static string Years(double a) // выбор «год», «года», «лет»
+//    {
+//       double drob = a - (int)a;
+//       string num = Convert.ToString((int)a);
+//       string num_2 = "", num_3 = "";
+//       if (num.Length >= 3)
+//          num_2 = num.Substring(num.Length - 2);
+//       else
+//          num_2 = num;
+//       if (num.Length >= 2)
+//          num_3 = num.Substring(num.Length - 1);
+//       else
+//          num_3 = num;
+//       if (num_3 == "1" && num_2 != "11" && drob == 0)
+//          return "год";
+//       else if ((a < 5.0) || (num_3 == "2" & num_2 != "12") || (num_3 == "3" & num_2 != "13") ||
+//            (num_3 == "4" & num_2 != "14"))
+//          return "года";
+//       else return "лет";
+//    }
+//    static void Main(string[] args)
+//    {
+//       double x, y, z, h;
+//       Console.WriteLine("Решение 24 задания — Возраст Тани — X лет, а возраст Мити — Y лет. " +
+//         "Найти их средний возраст, а также определить, на сколько отличается возраст каждого " +
+//         "ребенка от среднего значения. :");
+//       Console.WriteLine("Введите возраст Тани:");
+//          x = Vvod_Chisla();
+//       Console.WriteLine("Введите возраст Мити:");
+//          y = Vvod_Chisla();
+//       string bolsheT = "", bolsheM = "";
+//       z = Math.Abs((x - y) / 2); // отклонение от среднего возраста
+//       h = (x + y) / 2; // средний возраст
+//       if (x < y)
+//       {
+//          bolsheT = "младше";
+//          bolsheM = "старше";
+//       }
+//       else
+//       {
+//          bolsheT = "старше";
+//          bolsheM = "младше";
+//       }
+//       if (x == y)
+//          Console.WriteLine("Таня и Митя одного возраста. Обоим {0} {1}", x, Years(x));
+//       else
+//       {
+//          Console.WriteLine("Средний возраст детей {0} {1}", h, Years(h));
+//          Console.WriteLine("Таня {0} среднего возраста на {1} {2}", bolsheT, z, Years(z));
+//          Console.WriteLine("Митя {0} среднего возраста на {1} {2}", bolsheM, z, Years(z));
+//       }
+
+//    }
+// }
